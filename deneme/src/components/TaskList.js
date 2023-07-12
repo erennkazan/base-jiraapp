@@ -1,13 +1,16 @@
-import TaskShow from './TaskShow'
-function TaskList({tasks,onDelete,onUpdate}) {
-     return (
-     <div className="task-list">
-        {tasks.map((task,index)=>{
-        return(
-         <TaskShow key={index} task={task} onDelete={onDelete} onUpdate={onUpdate}/>    
-        )
-})}
-     </div>
+import TaskShow from './TaskShow';
+
+import { useContext } from 'react';
+import TasksContext from '../context/task';
+
+function TaskList() {
+  const { tasks } = useContext(TasksContext);
+  return (
+    <div className="task-list">
+      {tasks.map((task, index) => {
+        return <TaskShow key={index} task={task} />;
+      })}
+    </div>
   );
 }
 
